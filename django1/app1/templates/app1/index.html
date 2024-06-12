@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter Combinations</title>
+</head>
+<body>
+    <h1>Enter a three-letter word</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Generate Combinations</button>
+    </form>
+    {% if combinations %}
+        <h2>All possible combinations:</h2>
+        <ul>
+            {% for combination in combinations %}
+                <li>{{ combination }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
